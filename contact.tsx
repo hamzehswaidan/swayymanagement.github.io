@@ -31,6 +31,29 @@ export function Contact() {
     e.preventDefault()
     setSent(true)
   }
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+
+  const form = e.target as HTMLFormElement;
+  const formData = new FormData(form);
+
+  const name = formData.get("name");
+  const email = formData.get("email");
+  const message = formData.get("message");
+
+  const res = await fetch("/api/contact", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ name, email, message }),
+  });
+
+  if (res.ok) {
+    alert("Message sent!");
+    form.reset();
+  } else {
+    alert("Something went wrong.");
+  }
+};
 
   return (
     <section id="contact" className="border-t border-border bg-secondary/30 py-28">
@@ -101,7 +124,7 @@ export function Contact() {
                 </p>
               </div>
             ) : (
-              <form onSubmit={onSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid gap-6 sm:grid-cols-2">
                   <Field label="Name" id="name" placeholder="Your name" />
                   <Field label="Email" id="email" type="email" placeholder="you@email.com" />
