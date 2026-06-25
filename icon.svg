@@ -1,26 +1,137 @@
-<svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    @media (prefers-color-scheme: light) {
-      .background { fill: black; }
-      .foreground { fill: white; }
-    }
-    @media (prefers-color-scheme: dark) {
-      .background { fill: white; }
-      .foreground { fill: black; }
-    }
-  </style>
-  <g clip-path="url(#clip0_7960_43945)">
-    <rect class="background" width="180" height="180" rx="37" />
-    <g style="transform: scale(95%); transform-origin: center">
-      <path class="foreground"
-        d="M101.141 53H136.632C151.023 53 162.689 64.6662 162.689 79.0573V112.904H148.112V79.0573C148.112 78.7105 148.098 78.3662 148.072 78.0251L112.581 112.898C112.701 112.902 112.821 112.904 112.941 112.904H148.112V126.672H112.941C98.5504 126.672 86.5638 114.891 86.5638 100.5V66.7434H101.141V100.5C101.141 101.15 101.191 101.792 101.289 102.422L137.56 66.7816C137.255 66.7563 136.945 66.7434 136.632 66.7434H101.141V53Z" />
-      <path class="foreground"
-        d="M65.2926 124.136L14 66.7372H34.6355L64.7495 100.436V66.7372H80.1365V118.47C80.1365 126.278 70.4953 129.958 65.2926 124.136Z" />
-    </g>
-  </g>
-  <defs>
-    <clipPath id="clip0_7960_43945">
-      <rect width="180" height="180" fill="white" />
-    </clipPath>
-  </defs>
-</svg>
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-heading: var(--font-cormorant), 'Cormorant Garamond Fallback';
+  --font-sans: var(--font-geist-sans), 'Geist Fallback';
+  --font-mono: var(--font-geist-mono), 'Geist Mono Fallback';
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-gold: var(--gold);
+  --color-gold-foreground: var(--gold-foreground);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  /* Deep navy background, gold accent, off-white text - Swayy branding */
+  --background: oklch(0.21 0.04 257);
+  --foreground: oklch(0.97 0.01 90);
+  --card: oklch(0.25 0.04 257);
+  --card-foreground: oklch(0.97 0.01 90);
+  --popover: oklch(0.25 0.04 257);
+  --popover-foreground: oklch(0.97 0.01 90);
+  --primary: oklch(0.78 0.12 82);
+  --primary-foreground: oklch(0.21 0.04 257);
+  --secondary: oklch(0.28 0.04 257);
+  --secondary-foreground: oklch(0.97 0.01 90);
+  --muted: oklch(0.28 0.04 257);
+  --muted-foreground: oklch(0.74 0.02 90);
+  --accent: oklch(0.78 0.12 82);
+  --accent-foreground: oklch(0.21 0.04 257);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.34 0.04 257);
+  --input: oklch(0.34 0.04 257);
+  --ring: oklch(0.78 0.12 82);
+  --gold: oklch(0.78 0.12 82);
+  --gold-foreground: oklch(0.21 0.04 257);
+  --chart-1: oklch(0.78 0.12 82);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --radius: 0.5rem;
+  --sidebar: oklch(0.21 0.04 257);
+  --sidebar-foreground: oklch(0.97 0.01 90);
+  --sidebar-primary: oklch(0.78 0.12 82);
+  --sidebar-primary-foreground: oklch(0.21 0.04 257);
+  --sidebar-accent: oklch(0.28 0.04 257);
+  --sidebar-accent-foreground: oklch(0.97 0.01 90);
+  --sidebar-border: oklch(0.34 0.04 257);
+  --sidebar-ring: oklch(0.78 0.12 82);
+}
+
+.dark {
+  --background: oklch(0.21 0.04 257);
+  --foreground: oklch(0.97 0.01 90);
+  --card: oklch(0.25 0.04 257);
+  --card-foreground: oklch(0.97 0.01 90);
+  --popover: oklch(0.25 0.04 257);
+  --popover-foreground: oklch(0.97 0.01 90);
+  --primary: oklch(0.78 0.12 82);
+  --primary-foreground: oklch(0.21 0.04 257);
+  --secondary: oklch(0.28 0.04 257);
+  --secondary-foreground: oklch(0.97 0.01 90);
+  --muted: oklch(0.28 0.04 257);
+  --muted-foreground: oklch(0.74 0.02 90);
+  --accent: oklch(0.78 0.12 82);
+  --accent-foreground: oklch(0.21 0.04 257);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(0.34 0.04 257);
+  --input: oklch(0.34 0.04 257);
+  --ring: oklch(0.78 0.12 82);
+  --gold: oklch(0.78 0.12 82);
+  --gold-foreground: oklch(0.21 0.04 257);
+  --chart-1: oklch(0.78 0.12 82);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.21 0.04 257);
+  --sidebar-foreground: oklch(0.97 0.01 90);
+  --sidebar-primary: oklch(0.78 0.12 82);
+  --sidebar-primary-foreground: oklch(0.21 0.04 257);
+  --sidebar-accent: oklch(0.28 0.04 257);
+  --sidebar-accent-foreground: oklch(0.97 0.01 90);
+  --sidebar-border: oklch(0.34 0.04 257);
+  --sidebar-ring: oklch(0.78 0.12 82);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+}
